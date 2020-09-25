@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="Assets/style.css">
+    <link rel="stylesheet" href="assets/style.css">
+    
 
     <title>Coding Quiz</title>
 </head>
@@ -15,28 +16,31 @@
             <p class="text-sm-left"><a href="highscore.html">View Highscores</a></p>
           </div>
           <div class="col-sm">
-            <p class="text-sm-right">Time: </p>
+            <p class="text-sm-right">Time: <span id="timer">00</span></p>
           </div>
         </div>
       </div>
 
       <div class="container">
         <div class="row">
-          <div class="col-md-8 offset-md-2">
-            <h1>Here is where the question will go</h1>
+          <div class="col-md-8 offset-md-2 question">
+            <h1 class="time"></h1>
+            <div id="main"></div>
+            <div id="question"></div>
           </div>
         </div>
         <div class="row">
-            <div class="col-md-8 offset-md-2">
-              <p>here is where the test options will go</p>
+            <div class="col-md-8 offset-md-2 options">
+              <div id="answers"></div>
+              <div id="quizdiv"><button id="startquiz">Start Quiz</button></div>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-8 offset-md-2">
-              <p>here is where the answers will go</p>
+            <div class="col-md-8 offset-md-2 results">
+              <div id="results"></div>
             </div>
           </div>
       </div>
-    
+      <script src="assets/script.js"></script>
 </body>
 </html>

@@ -6,3 +6,14 @@
 a {
     color: purple;
 }
+
+button {
+    border-radius: 10px;
+    background-color: purple;
+    color: white;
+    border-color: white;
+}
+
+button:hover {
+    background-color: rgb(224, 140, 224);
+  }
