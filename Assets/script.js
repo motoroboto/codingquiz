@@ -1,10 +1,12 @@
 var timeEl = document.getElementById('timer');
-var question = document.getElementById('question');
-var answers = document.getElementById('answers');
-var results = document.getElementById('results');
+var questionEl = document.getElementById('question');
+var answersEl = document.getElementById('answers');
+var resultsEl = document.getElementById('results');
+var greetingText = document.getElementById('greeting');
 var secondsLeft = 60;
 
 function quizBegin() {
+    greetingText.innerHTML = '';
   var timerInterval = setInterval(function() {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
@@ -18,7 +20,7 @@ function quizBegin() {
 }
 
 function sendMessage() {
-  timeEl.textContent = " ";
+  timeEl.textContent = '';
 
 }
 
