@@ -2,8 +2,6 @@ var timeEl = document.getElementById('timer');
 var question = document.getElementById('question');
 var answers = document.getElementById('answers');
 var results = document.getElementById('results');
-// var startquiz = document.getElementById('startquiz')
-
 var secondsLeft = 60;
 
 function quizBegin() {
