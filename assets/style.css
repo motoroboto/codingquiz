@@ -7,16 +7,19 @@ a {
     color: purple;
 }
 
+.button,
 button {
     border-radius: 8px;
     background-color: purple;
     color: white;
     border-color: white;
-    margin-top: 5px;
+    /* margin-top: 5px; */
     padding: 3px;
     padding-left: 8px;
     padding-right: 8px;
 }
+
+
 
 button:hover {
     background-color: rgb(224, 140, 224);

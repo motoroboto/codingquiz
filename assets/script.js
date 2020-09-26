@@ -1,80 +1,50 @@
 var timeEl = document.getElementById('timer');
 var questionEl = document.getElementById('question');
-var answersEl = document.getElementById('answers');
-var resultsEl = document.getElementById('results');
 var greetingText = document.getElementById('greeting');
 var secondsLeft = 60;
 var progress = 0;
 var score = 0;
-var test;
-var question;
-var a;
-var b;
-var c;
-var answer;
 
 
 
-var testQuestions = [
-{
-    question: "what is java?",
-    a: "coffee",
-    b: "a coding language",
-    c: "a color"
-},
-{
-    question: "what is HTML?",
-    a: "hyper text markup language",
-    b: "have the most laughs",
-    c: "his time may last"
-},
-{
-    question: "what is HTML?",
-    a: "hyper text markup language",
-    b: "have the most laughs",
-    c: "his time may last"
-},
-{
-    question: "what is HTML?",
-    a: "hyper text markup language",
-    b: "have the most laughs",
-    c: "his time may last"
-},
-{
-    question: "what is HTML?",
-    a: "hyper text markup language",
-    b: "have the most laughs",
-    c: "his time may last"
+
+var question01 = {
+    question: "What is java?",
+    answers: ["A: Coffee", "B: A Coding Language", "C: A Color", "D: some other option"]
 }
-];
+var question02 = {
+  question: "What is java?",
+  answers: ["A: Coffee", "B: A Coding Language", "C: A Color", "D: some other option"]
+}
+var question03 = {
+  question: "What is java?",
+  answers: ["A: Coffee", "B: A Coding Language", "C: A Color", "D: some other option"]
+}
+var question04 = {
+  question: "What is java?",
+  answers: ["A: Coffee", "B: A Coding Language", "C: A Color", "D: some other option"]
+}
+var question05 = {
+  question: "What is java?",
+  answers: ["A: Coffee", "B: A Coding Language", "C: A Color", "D: some other option"]
+}
+
 
 function quiz() {
-    JSON.stringify(testQuestions)
-    var h = document.createElement("h1");
-    var q = document.createTextNode(testQuestions[0].question);
-    h.appendChild(q);
-    questionEl.appendChild(h);
-    var br = document.createElement("br")
-    questionEl.appendChild(br)
-    var button1 = document.createElement("button");
-    var answer1 = document.createTextNode(testQuestions[0].a);
-    button1.appendChild(answer1);
-    questionEl.appendChild(button1);
-    var br = document.createElement("br")
-    questionEl.appendChild(br)
-    var button2 = document.createElement("button");
-    var answer2 = document.createTextNode(testQuestions[0].b);
-    button2.appendChild(answer2);
-    questionEl.appendChild(button2);
-    var br = document.createElement("br")
-    questionEl.appendChild(br)
-    var button3 = document.createElement("button");
-    var answer3 = document.createTextNode(testQuestions[0].c);
-    button3.appendChild(answer3);
-    questionEl.appendChild(button3);
-    // appendChild(answer1)
-    // questionEl.h1 = testQuestions[0].question;
-}
+        
+  questionEl.textContent = question01.question;
+  var answers = question01.answers;
+
+  for (var i = 0; i < answers.length; i++) {
+      var li = document.createElement("li");
+      li.setAttribute("class", "button");
+      li.setAttribute("id", [i]);
+      li.textContent = answers[i];
+      var br = document.createElement("br");
+      questionEl.appendChild(li);
+      questionEl.appendChild(br);
+  };  
+};
 
 function quizBegin() {
     greetingText.innerHTML = '';
