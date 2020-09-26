@@ -4,7 +4,7 @@ var greetingText = document.getElementById('greeting');
 var secondsLeft = 60;
 var progress = 0;
 var score = 0;
-
+var questionHeader = document.getElementById('questionheader')
 
 
 
@@ -32,12 +32,11 @@ var question05 = {
 
 function quiz() {
         
-  questionEl.textContent = question01.question;
+  questionHeader.textContent = question01.question;
   var answers = question01.answers;
-
   for (var i = 0; i < answers.length; i++) {
       var li = document.createElement("li");
-      li.setAttribute("class", "button");
+      li.setAttribute("class", "button btn");
       li.setAttribute("id", [i]);
       li.textContent = answers[i];
       var br = document.createElement("br");
