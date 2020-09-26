@@ -1,5 +1,6 @@
 var timeEl = document.getElementById('timer');
 var questionEl = document.getElementById('question');
+var resultsEl = document.getElementById('results');
 var greetingText = document.getElementById('greeting');
 var secondsLeft = 60;
 var progress = 0;
@@ -44,6 +45,11 @@ function quiz() {
       questionEl.appendChild(br);
   };  
 };
+questionEl.addEventListener("click", function(event) {
+  if (event.class === 'button'); {
+  secondsLeft = secondsLeft - 10
+  }
+});
 
 function quizBegin() {
     greetingText.innerHTML = '';
@@ -51,7 +57,7 @@ function quizBegin() {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
 
-    if(secondsLeft === 0) {
+    if(secondsLeft <= 0) {
       clearInterval(timerInterval);
       sendMessage();
     }
