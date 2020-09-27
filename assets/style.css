@@ -25,11 +25,11 @@ button:hover {
     background-color: rgb(224, 140, 224);
   }
 
-#greeting {
+#greetingdiv {
     margin-top: 40px;
 }
 
-#results {
+#resultsdiv {
     padding-top: 20px;
     text-align: right;
 }

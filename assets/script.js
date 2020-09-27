@@ -65,7 +65,7 @@ questionEl.addEventListener('click', function(event) {
     console.log('progress:', progress);
     questionEl.textContent = '';
     questionText.textContent = 'Your Score is ' + secondsLeft;
-    if (progress < 4) {
+    if (progress < 5) {
       quiz()
       setTimeout(function(){ 
         resultsEl.textContent = '';
