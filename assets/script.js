@@ -1,13 +1,13 @@
 var timeEl = document.getElementById('timer');
-var questionEl = document.getElementById('question');
-var resultsEl = document.getElementById('results');
-var greetingText = document.getElementById('greeting');
-var questionHeader = document.getElementById('questionheader')
+var questionEl = document.getElementById('questiondiv');
+var resultsEl = document.getElementById('resultsdiv');
+var greetingText = document.getElementById('greetingdiv');
+var questionText = document.getElementById('questionheader')
 var secondsLeft = 60;
 var progress = 0;
 
 
-var questions = [
+var questionArray = [
   {
     question: "What is java?",
     answers: ["A: Coffee", "B: A Coding Language", "C: A Color", "D: some other option"],
@@ -39,15 +39,15 @@ function quiz() {
       cq = progress;  
   console.log('progress:', progress);
   console.log('currentquestion:', cq);
-  questionHeader.textContent = questions[cq].question;
-  console.log('textContent:', questionHeader.textContent);
-  console.log('question:', questions[cq].question);
+  questionText.textContent = questionArray[cq].question;
+  console.log('textContent:', questionText.textContent);
+  console.log('question:', questionArray[cq].question);
   for (var i = 0; i < 4; i++) {
       var li = document.createElement('li');
       li.setAttribute('class', 'button btn');
       li.setAttribute('id', [i]);
       console.log('i:', li.id)
-      li.textContent = questions[cq].answers[i];
+      li.textContent = questionArray[cq].answers[i];
       var br = document.createElement('br');
       questionEl.appendChild(li);
       questionEl.appendChild(br);
@@ -57,20 +57,24 @@ function quiz() {
 questionEl.addEventListener('click', function(event) {
   var target = event.target;
   console.log('target:', target)
-  if (target.id == questions[cq].correct) {
-    console.log('correct:', questions[cq].correct)
+  if (target.id == questionArray[cq].correct) {
+    console.log('correct:', questionArray[cq].correct)
     console.log('id:', target.id)
     resultsEl.textContent = 'Good Job'; 
     progress = progress +1;
     console.log('progress:', progress);
     questionEl.textContent = '';
-    questionHeader.textContent = '';
-    quiz()
-    setTimeout(function(){ 
-      resultsEl.textContent = '';
-  }, 1000);
+    questionText.textContent = 'Your Score is ' + secondsLeft;
+    if (progress < 4) {
+      quiz()
+      setTimeout(function(){ 
+        resultsEl.textContent = '';
+    }, 1000);
+    } else {
+      return;
+    }
   } else {
-    console.log('correct:', questions[cq].correct)
+    console.log('correct:', questionArray[cq].correct)
     console.log('id:', target.id)
     secondsLeft = secondsLeft - 10;
     resultsEl.textContent = "You Lost 10 seconds, Hot Shot!";
