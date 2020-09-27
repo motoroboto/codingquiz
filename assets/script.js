@@ -11,7 +11,8 @@ var questionHeader = document.getElementById('questionheader')
 
 var question01 = {
     question: "What is java?",
-    answers: ["A: Coffee", "B: A Coding Language", "C: A Color", "D: some other option"]
+    answers: ["A: Coffee", "B: A Coding Language", "C: A Color", "D: some other option"],
+    correct: 1
 }
 var question02 = {
   question: "What is java?",
@@ -39,6 +40,8 @@ function quiz() {
       var li = document.createElement("li");
       li.setAttribute("class", "button btn");
       li.setAttribute("id", [i]);
+      console.log('i:', li.id)
+
       li.textContent = answers[i];
       var br = document.createElement("br");
       questionEl.appendChild(li);
@@ -46,10 +49,23 @@ function quiz() {
   };  
 };
 questionEl.addEventListener("click", function(event) {
-  if (event.class === 'button'); {
-  secondsLeft = secondsLeft - 10
+  var target = event.target;
+  console.log('target:', target)
+  if (target.id == question01.correct) {
+    console.log('correct:', question01.correct)
+    console.log('id:', target.id)
+    resultsEl.textContent = "Good Job"; 
+  } else {
+    console.log('correct:', question01.correct)
+    console.log('id:', target.id)
+    secondsLeft = secondsLeft - 10;
+    resultsEl.textContent = "You Lost 10 seconds, Hot Shot!";
+  // setTimeout(function(){
+  //   resultsEl.getElementById('check').innerHTML='';
+  //   },3000);
   }
 });
+
 
 function quizBegin() {
     greetingText.innerHTML = '';
