@@ -28,9 +28,19 @@
                     <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
                     <button id="startquiz" class="btn button">Start Quiz</button>
                 </div>
-                    <h1 id="questionheader"></h1>    
-                    <div id="questiondiv"></div>
-                    <div id="resultsdiv"></div>
+                    <h1 id='questionheader'></h1>    
+                    <div id='questiondiv'></div>
+                    <div class ='card' id='winnerdiv'>
+                        <h1>Your Final Score is: <span id="score"></span></h1>
+                        <form method="POST">
+                          <div class="input-group">
+                            <input type="text" id="initials" placeholder="Enter Initials Here" />
+                          </div>
+                          <!-- <div id="msg"></div> -->
+                          <button id='submit'>Submit</button>
+                        </form>
+                    </div>
+                    <div id='resultsdiv'></div>
             </div>
         </div>
     </div>

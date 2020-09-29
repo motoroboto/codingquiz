@@ -1,8 +1,12 @@
 var timeEl = document.getElementById('timer');
+var scoreEl = document.getElementById('score');
 var questionEl = document.getElementById('questiondiv');
 var resultsEl = document.getElementById('resultsdiv');
+var winnerEl = document.getElementById('winnerdiv');
 var greetingText = document.getElementById('greetingdiv');
-var questionText = document.getElementById('questionheader')
+var questionText = document.getElementById('questionheader');
+var submitButton = document.getElementById('submit');
+// var initialsEl = document.getElementById('initials')
 var secondsLeft = 60;
 var progress = 0;
 
@@ -35,6 +39,7 @@ var questionArray = [
     }
 ]
 
+
 function quiz() {
       cq = progress;  
   console.log('progress:', progress);
@@ -64,13 +69,18 @@ questionEl.addEventListener('click', function(event) {
     progress = progress +1;
     console.log('progress:', progress);
     questionEl.textContent = '';
-    questionText.textContent = 'Your Score is ' + secondsLeft;
     if (progress < 5) {
       quiz()
       setTimeout(function(){ 
         resultsEl.textContent = '';
     }, 1000);
     } else {
+      scoreEl.textContent = secondsLeft;
+      secondsLeft = 0;
+      console.log('score:', scoreEl.textContent);
+      resultsEl.textContent = '';
+      questionText.textContent = '';
+      winnerEl.style.display = 'block';
       return;
     }
   } else {
@@ -103,7 +113,24 @@ quiz()
 
 function sendMessage() {
   timeEl.textContent = '';
-  
-
 }
+
 document.getElementById('startquiz').addEventListener('click', quizBegin);
+
+submitButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  var initialsEl = document.querySelector("#initials").value;
+  // Parse any JSON previously stored in allScores
+  var currentScores = JSON.parse(localStorage.getItem("allScores"));
+  if(currentScores == null) currentScores = [];
+  var highscore = {
+    initials: initialsEl.trim(),
+    score: scoreEl.textContent,
+  };
+  localStorage.setItem("highscore", JSON.stringify(highscore));
+  // Save allScores back to local storage
+  currentScores.push(highscore);
+  localStorage.setItem("allScores", JSON.stringify(currentScores));
+
+  location.href = "highscore.html";
+});
