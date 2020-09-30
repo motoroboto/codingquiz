@@ -12,29 +12,29 @@ var secondsLeft = 60;
 var progress = 0;
 var questionArray = [
   {
-    question: "What is java?",
-    answers: ["A: Coffee", "B: A Coding Language", "C: A Color", "D: some other option"],
-    correct: 1
+    question: "Which of the following is an advantage of using JavaScript?",
+    answers: ["A: Less server interaction", "B: Immediate feedback to the visitors", "C: Increased interactivity", "D: All of the above"],
+    correct: 3
     },
   {
-    question: "What else is java?",
-    answers: ["A: Coffee", "B: A Coding Language", "C: A Color", "D: some other option"],
+    question: "Which of the following is a valid type of function javascript supports?",
+    answers: ["A: named function", "B: anonymous function", "C: Both of the above", "D: None of the above"],
     correct: 2
     },
   {
-    question: "Something Else?",
-    answers: ["A: Coffee", "B: A Coding Language", "C: A Color", "D: some other option"],
-    correct: 3
-    },
-  {
-    question: "Another java thing?",
-    answers: ["A: Coffee", "B: A Coding Language", "C: A Color", "D: some other option"],
+    question: "What is the HTML tag under which one can write the JavaScript code?",
+    answers: ["A: <script>", "B: <js>", "C: <scripted>", "D: <javascript>"],
     correct: 0
     },
   {
-    question: "What isn't again?",
-    answers: ["A: Coffee", "B: A Coding Language", "C: A Color", "D: some other option"],
-    correct: 3
+    question: "Which of the following is not a reserved word in Javascript?",
+    answers: ["A: interface", "B: throw", "C: program", "D: short"],
+    correct: 2
+    },
+  {
+    question: "What is the correct way to write an IF statement in JavaScript?",
+    answers: ["A: if i == 5 then", "B: if (i == 5)", "C: if i = 5", "D: if i = 5 then"],
+    correct: 1
     }
 ]
 
@@ -55,7 +55,7 @@ function quiz() {
 questionEl.addEventListener('click', function(event) {
   var target = event.target;
   if (target.id == questionArray[cq].correct) {
-    resultsEl.textContent = 'Good Job'; 
+    resultsEl.textContent = 'Correct!'; 
     progress = progress +1;
     questionEl.textContent = '';
     if (progress < 5) {
@@ -73,7 +73,7 @@ questionEl.addEventListener('click', function(event) {
     }
   } else {
     secondsLeft = secondsLeft - 10;
-    resultsEl.textContent = "You Lost 10 seconds, Hot Shot!";
+    resultsEl.textContent = "INCORRECT: Try Again!";
       setTimeout(function(){ 
       resultsEl.textContent = '';
       }, 1000);
