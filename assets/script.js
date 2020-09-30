@@ -3,10 +3,11 @@ var scoreEl = document.getElementById('score');
 var questionEl = document.getElementById('questiondiv');
 var resultsEl = document.getElementById('resultsdiv');
 var winnerEl = document.getElementById('winnerdiv');
+var mainH1El = document.getElementById('mainH1');
+var mainPEl = document.getElementById('mainP');
 var greetingText = document.getElementById('greetingdiv');
 var questionText = document.getElementById('questionheader');
 var submitButton = document.getElementById('submit');
-// var initialsEl = document.getElementById('initials')
 var secondsLeft = 60;
 var progress = 0;
 
@@ -101,9 +102,15 @@ function quizBegin() {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
 
-    if(secondsLeft <= 0) {
+    if(secondsLeft <= 0 && progress < 5) {
       clearInterval(timerInterval);
-      sendMessage();
+      retryQuiz()
+    }
+
+    if(secondsLeft <= 0 && progress >= 5) {
+      timeEl.textContent = '';
+      clearInterval(timerInterval);
+      
     }
 
   }, 1000);
@@ -111,8 +118,16 @@ function quizBegin() {
 quiz()  
 }
 
-function sendMessage() {
+function retryQuiz() {
   timeEl.textContent = '';
+  questionText.textContent = '';
+  questionEl.textContent = '';
+  var h2 = document.createElement('h2')
+  h2.textContent = 'Sorry, Please Try Again';
+  greetingText.appendChild(h2);
+  setTimeout(function(){ 
+    location.reload();
+}, 1000);
 }
 
 document.getElementById('startquiz').addEventListener('click', quizBegin);
@@ -120,7 +135,6 @@ document.getElementById('startquiz').addEventListener('click', quizBegin);
 submitButton.addEventListener("click", function(event) {
   event.preventDefault();
   var initialsEl = document.querySelector("#initials").value;
-  // Parse any JSON previously stored in allScores
   var currentScores = JSON.parse(localStorage.getItem("allScores"));
   if(currentScores == null) currentScores = [];
   var highscore = {
@@ -128,7 +142,6 @@ submitButton.addEventListener("click", function(event) {
     score: scoreEl.textContent,
   };
   localStorage.setItem("highscore", JSON.stringify(highscore));
-  // Save allScores back to local storage
   currentScores.push(highscore);
   localStorage.setItem("allScores", JSON.stringify(currentScores));
 
