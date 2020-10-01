@@ -2,6 +2,6 @@ This page is a short quiz on coding. It dynamically updates and scales for use o
 
 It can be accessed here: https://motoroboto.github.io/codingquiz/index.html
 
-<img src="https://github.com/motoroboto/codingquiz/blob/master/sssets/screenshot01.png">
-<img src="https://github.com/motoroboto/codingquiz/blob/master/sssets/screenshot02.png">
-<img src="https://github.com/motoroboto/codingquiz/blob/master/sssets/screenshot03.png">
+<img src="https://github.com/motoroboto/codingquiz/blob/master/assets/screenshot01.png">
+<img src="https://github.com/motoroboto/codingquiz/blob/master/assets/screenshot02.png">
+<img src="https://github.com/motoroboto/codingquiz/blob/master/assets/screenshot03.png">
